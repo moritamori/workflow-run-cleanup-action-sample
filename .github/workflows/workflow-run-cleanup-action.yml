@@ -1,0 +1,17 @@
+name: 'Autocancel GitHub Actions workflows'
+on:
+  push: []
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Autocancel Github Actions workflows
+        uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
